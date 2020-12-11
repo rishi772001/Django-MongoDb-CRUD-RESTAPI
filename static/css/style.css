@@ -1,0 +1,45 @@
+body{
+    margin: 30px;
+}
+table{
+    width: 50vw;
+    background-color: lightgrey;
+    padding: 10px;
+}
+table input[type="text"]{
+    border: none;
+    border-bottom: 2px solid darkgrey;
+    background-color: inherit;
+    margin: 5px 10px;
+}
+th{
+    font-weight: bold;
+}
+button{
+    background-color: forestgreen;
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+span{
+    position: absolute;
+    right:15vw;
+}
+.warning{
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 7px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.danger{
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 7px;
+    cursor: pointer;
+    border-radius: 2px;
+}

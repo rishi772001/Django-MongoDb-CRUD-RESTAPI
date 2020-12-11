@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Django App</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Student Details <span><a href="/add"><button>Add student detail</button></a></span></h1>
+<table>
+<tr>
+    <th>Name</th>
+    <th>Mark1</th>
+    <th>Mark2</th>
+    <th>Mark3</th>
+    <th>Total</th>
+    <th></th>
+    <th></th>
+</tr>
+    {% for student in details %}
+        <tr>
+            <form method="POST">
+                {% csrf_token %}
+                <td><input type="text" name="name" value = {{ student.name }}></td>
+                <td><input type="text" name = "mark1" value ={{ student.mark1 }}></td>
+                <td><input type="text" name = "mark2" value ={{ student.mark2 }}></td>
+                <td><input type="text" name = "mark3" value ={{ student.mark3 }}></td>
+                <td><input type="text" name = "total" value ={{ student.total }}></td>
+                <td><input type="submit" name = "action" class="warning" value ="Update"></td>
+                <td><input type="submit" name = "action" class="danger" value ="Delete"></td>
+            </form>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

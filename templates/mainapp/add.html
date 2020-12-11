@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>Add Student details</h2>
+    <form method="POST">{% csrf_token %}
+        <input type="text" name="name" placeholder="name">
+        <input type="text" name="mark1" placeholder="mark1">
+        <input type="text" name="mark2" placeholder="mark2">
+        <input type="text" name="mark3" placeholder="mark3">
+        <input type="text" name="total" placeholder="total">
+        <input type="submit" value="save">
+    </form>
+</body>
+</html>
