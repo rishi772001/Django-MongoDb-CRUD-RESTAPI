@@ -1,0 +1,26 @@
+Django -> open source web development framework using python and follow Model-View-Template(MVT)
+
+Models -> Each class(model) extends Model class from django.db -> Database table
+Views -> Function that takes HttpRequest and return a HttpResponse as html page or redirect or etc.. after processing
+    1. class based views -> extends View class from django.views, contains special methods for Http methods with request as parameter
+    2. function based views -> request as parameter and act corresponding to http method
+urls -> map each url with respective view, name_of_view.as_view() for class view
+Templates -> An html page with python code for displaying data from view
+
+MongoDB -> An open source NoSql Database
+djongo -> Driver for allowing Django to use MongoDB as the database backend.
+
+API -> Application programming interface -> intermediate btw two applications for communication btw them
+How two applications will communicate?? By asking and sending data in any format(JSON, XML, etc...)
+
+REST API -> Representational State Transfer -> set of rules or guidelines to build a web API
+
+djangorestframework => provides necessary functions to create a restfull web service using django and python
+Steps to create a rest api:
+1. pip install djangorestframework
+2. add rest_framework to installed_apps
+3. create serialize.py file  -> convert model <-> json for transmission -> tells the rest framework what and how to serialize
+4. create view to display data -> create a viewset by getting data from model and pass it to serializer
+5. map urls -> rest_framework router will automate this task by passing the viewset to it
+
+Reference Article -> https://medium.com/swlh/build-your-first-rest-api-with-django-rest-framework-e394e39a482c
