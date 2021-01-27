@@ -1,4 +1,4 @@
-# Django-MongoDB-CRUD
+# Django-MongoDB-CRUD-RESTAPI
 
 Basic create, read, update and delete for students marks and total is here with super cool User Interface. MongoDB, A NoSQL database is used to store data.
 A Restful web service for accessing the students details is created.
