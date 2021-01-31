@@ -1,0 +1,56 @@
+version: '3.1'
+
+volumes:
+  init-db:
+  data-db:
+
+services:
+  mongodb:
+    image: mongo
+    restart: always
+    volumes:
+      - ./init-db:/docker-entrypoint-initdb.d
+      - ./data-db:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: mongoadmin
+      MONGO_INITDB_DATABASE: student
+    ports:
+      - 27017:27017
+
+
+
+  web:
+    image: app
+    restart: always
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/django_mongodb_docker
+    ports:
+      - 8000:8000
+    links:
+      - mongodb
+    depends_on:
+      - migration
+
+  migration:
+    build: .
+    image: app
+    command: python manage.py migrate
+    volumes:
+      - .:/django_mongodb_docker
+    links:
+      - mongodb
+    depends_on:
+      - make_migrations
+
+  make_migrations:
+    build: .
+    image: app
+    command: python manage.py makemigrations
+    volumes:
+      - .:/django_mongodb_docker
+    links:
+      - mongodb
+    depends_on:
+      - mongodb

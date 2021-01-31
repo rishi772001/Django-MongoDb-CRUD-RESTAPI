@@ -1,3 +1,6 @@
 .git
 .idea
 __pycache__
+data-db
+init-db
+
